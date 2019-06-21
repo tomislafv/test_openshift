@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <title>Hello Thymeleaf</title>
 </head>
 <body>
-<h1>Hello Thymeleaf</h1>
-
-<button type="button"  onclick="window.location.href='/CputUpTo1'">CPU Auslastung erhöhen Stufe 1</button>
-<button type="button"  onclick="window.location.href='/CputUpTo2'">CPU Auslastung erhöhen Stufe 2</button>
-<button type="button"  onclick="window.location.href='/CputUpTo3'">CPU Auslastung erhöhen Stufe 3</button>
-
+<h1>Autoscaling Testanwendung</h1>
+<div class="buttonsection">
+<button type="button" class="button" onclick="window.location.href='/CputUpTo1'">CPU Auslastung erhöhen Stufe 1</button>
+<button type="button" class="button button2" onclick="window.location.href='/CputUpTo2'">CPU Auslastung erhöhen Stufe 2</button>
+<button type="button" class="button button3" onclick="window.location.href='/CputUpTo3'">CPU Auslastung erhöhen Stufe 3</button>
+</div>
 </body>
 </html>

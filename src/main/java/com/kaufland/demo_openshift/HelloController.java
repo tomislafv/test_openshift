@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 @Controller
 public class HelloController {
@@ -20,9 +21,8 @@ public class HelloController {
     @RequestMapping(value = {"/CputUpTo1" }, method = RequestMethod.GET)
     public String Cpu1(Model model) {
 
-        System.out.println(LocalTime.now());
-        System.out.println(Prime(10000));
-        System.out.println(LocalTime.now());
+        System.out.println("start Stufe 1");
+        calculat(10000);
 
 
         return "index";
@@ -31,9 +31,8 @@ public class HelloController {
     @RequestMapping(value = {"/CputUpTo2" }, method = RequestMethod.GET)
     public String Cpu2(Model model) {
 
-        System.out.println(LocalTime.now());
-        System.out.println(Prime(100000));
-        System.out.println(LocalTime.now());
+        System.out.println("start Stufe 2");
+        calculat(100000);
 
 
         return "index";
@@ -42,16 +41,24 @@ public class HelloController {
     @RequestMapping(value = {"/CputUpTo3" }, method = RequestMethod.GET)
     public String Cpu3(Model model) {
 
-        System.out.println(LocalTime.now());
-        System.out.println(Prime(1000000));
-        System.out.println(LocalTime.now());
-        
+
+        System.out.println("start Stufe 3");
+        calculat(500000);
 
 
         return "index";
     }
 
-    public static String Prime(int maxCheck){
+    public static void calculat(int maxCheck){
+        LocalDateTime start = LocalDateTime.now();
+        System.out.println(prime(maxCheck));
+        LocalDateTime end = LocalDateTime.now();
+        double between = ChronoUnit.MILLIS.between(start, end);
+        System.out.println(between/1000 + " sekunden");
+
+    }
+
+    public static String prime(int maxCheck){
         int i;
         int num = 0;
         boolean isPrime = true;
@@ -59,7 +66,7 @@ public class HelloController {
         String primeNumbersFound = "";
 
         for (i = 1; i<=maxCheck; i++){
-            isPrime = CheckPrime(i);
+            isPrime = checkPrime(i);
             if (isPrime){
                 primeNumbersFound = primeNumbersFound + i + " ";
             }
@@ -69,7 +76,7 @@ public class HelloController {
         return primeNumbersFound;
     }
 
-    public static boolean CheckPrime(int numberToCheck) {
+    public static boolean checkPrime(int numberToCheck) {
         int remainder;
         for (int i = 2; i <= numberToCheck / 2; i++) {
             remainder = numberToCheck % i;

@@ -45,6 +45,7 @@ public class HelloController {
         System.out.println(LocalTime.now());
         System.out.println(Prime(1000000));
         System.out.println(LocalTime.now());
+        
 
 
         return "index";

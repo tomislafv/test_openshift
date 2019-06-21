@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Controller
 public class HelloController {
 
@@ -14,12 +17,34 @@ public class HelloController {
 
         return "index";
     }
-    @RequestMapping(value = {"/site2" }, method = RequestMethod.GET)
-    public String site2(Model model) {
+    @RequestMapping(value = {"/CputUpTo1" }, method = RequestMethod.GET)
+    public String Cpu1(Model model) {
+
+        System.out.println(LocalTime.now());
+        System.out.println(Prime(10000));
+        System.out.println(LocalTime.now());
 
 
+        return "index";
+    }
+
+    @RequestMapping(value = {"/CputUpTo2" }, method = RequestMethod.GET)
+    public String Cpu2(Model model) {
+
+        System.out.println(LocalTime.now());
         System.out.println(Prime(100000));
+        System.out.println(LocalTime.now());
 
+
+        return "index";
+    }
+
+    @RequestMapping(value = {"/CputUpTo3" }, method = RequestMethod.GET)
+    public String Cpu3(Model model) {
+
+        System.out.println(LocalTime.now());
+        System.out.println(Prime(1000000));
+        System.out.println(LocalTime.now());
 
 
         return "index";
@@ -47,7 +72,7 @@ public class HelloController {
         int remainder;
         for (int i = 2; i <= numberToCheck / 2; i++) {
             remainder = numberToCheck % i;
-            if (remainder == 0) {
+            if (remainder == 0 ) {
                 return false;
             }
         }

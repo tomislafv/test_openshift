@@ -33,7 +33,7 @@ public class TestController {
     public String Cpu2(Model model) {
 
         System.out.println("start Stufe 2");
-       calculat(100000);
+       calculat(20000);
 
 
         return "index";
@@ -44,7 +44,7 @@ public class TestController {
 
 
         System.out.println("start Stufe 3");
-        calculat(500000);
+        calculat(50000);
 
 
         return "index";

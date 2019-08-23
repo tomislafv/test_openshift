@@ -52,10 +52,10 @@ public class TestController {
 
     public static void calculat(int maxCheck){
         LocalDateTime start = LocalDateTime.now();
-        System.out.println(prime(maxCheck));
+       // System.out.println(prime(maxCheck));
         LocalDateTime end = LocalDateTime.now();
         double between = ChronoUnit.MILLIS.between(start, end);
-        System.out.println(between/1000 + " sekunden");
+       // System.out.println(between/1000 + " sekunden");
 
     }
 
